@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tamzid Rahman | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/Logo/favicon.svg" />
+    <style>
+      * {
+        font-family: serif, "Times New Roman", Times;
+        color: rgb(210, 220, 255);
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: rgb(13, 11, 28);
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 900;
+      }
+
+      h2,
+      h3 {
+        margin: 5rem 0 5rem 0;
+      }
+      .container {
+        margin: 0 auto;
+        padding: 0 1rem;
+        max-width: 900px;
+      }
+      section {
+        padding: 5rem 0;
+        border-bottom: 1px solid rgb(0, 229, 255);
+      }
+      button {
+        background-color: rgb(13, 11, 28);
+        display: flex;
+        border: 2px solid;
+        border-radius: 5%;
+        margin-right: 1rem;
+        padding: 1.5rem;
+      }
+      button:hover {
+        background: rgb(0, 229, 255);
+        color: black;
+        border: 3px solid;
+        border-color: rgb(44, 84, 89);
+      }
+      nav {
+        display: flex;
+        background-color: rgba(8, 6, 20, 0.5);
+        backdrop-filter: blur(10px) saturate(150%);
+        border-bottom: 1px solid rgb(0, 229, 255);
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        padding: 0 1rem;
+      }
+      nav .logo {
+        width: clamp(3.5rem, 4.5vw, 5.5rem);
+      }
+      nav .nav-links {
+        display: flex;
+        width: 100%;
+        list-style: none;
+        justify-content: end;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      nav .nav-links li {
+        height: 100%;
+        border-radius: 10%;
+      }
+      nav .nav-links li:hover {
+        transition: 500ms;
+        background-color: rgba(27, 23, 71, 0.5);
+      }
+      nav .nav-links a {
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.1rem;
+        font-size: 1.3rem;
+        padding: 1rem;
+        color: rgb(210, 220, 255);
+        height: 100%;
+      }
+      nav .nav-links a:hover {
+        color: rgb(0, 184, 205);
+      }
+      nav input[type="checkbox"] {
+        display: none;
+      }
+      nav label img {
+        cursor: pointer;
+        height: 3rem;
+        display: none;
+        justify-content: end;
+      }
+      input[type="checkbox"]:not(:checked) + label img {
+        transition: 100ms;
+      }
+      #hamburgerCheck:checked ~ nav {
+        display: none;
+      }
+      #hero {
+        align-items: center;
+        min-height: 80vh;
+        padding-top: 20vh;
+      }
+      #hero .container {
+        max-width: 600px;
+      }
+
+      #hero .status {
+        font-size: clamp(10px, 2.5vw, 1rem);
+        letter-spacing: 0.15rem;
+        color: rgb(0, 229, 255);
+      }
+      #hero .name1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+      }
+      #hero .name2 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        color: rgb(0, 184, 205);
+      }
+      .desc1 {
+        color: rgb(44, 84, 89);
+        padding: 15px 0 20px 0;
+      }
+      #hero .desc2 s {
+        color: grey;
+      }
+      .title {
+        letter-spacing: 10%;
+        padding-bottom: 80px;
+      }
+      #about {
+        background-color: rgb(17, 14, 36);
+      }
+      #about .left img {
+        width: clamp(12rem, 15vw, 16rem);
+        padding-bottom: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10rem;
+      }
+      #about .right {
+        border-left: 1px solid;
+        padding-left: 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      #about .about-row {
+        padding: 2.5rem;
+      }
+      #about .about-row h1 {
+        color: rgb(0, 111, 124);
+        -webkit-text-stroke: 1px rgb(0, 229, 255);
+      }
+
+      #skills h1 {
+        padding: 0;
+      }
+
+      #skills h2 {
+        text-align: center;
+      }
+      #skills .skill-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+      }
+
+      #skills .skill-row {
+        height: 300px;
+        width: 300px;
+        border: 3px solid rgb(73, 73, 73);
+        border-radius: 5%;
+        justify-self: center;
+        text-align: center;
+        padding: 2rem;
+      }
+      #skills .skill-row:hover {
+        border: 3px solid rgb(0, 229, 255);
+        background-color: rgb(31, 26, 67);
+      }
+      #skills .skill-row img {
+        width: 150px;
+      }
+      #skills a {
+        text-decoration: none;
+      }
+      #skills h3 {
+        text-align: start;
+      }
+      #skills .chess-desc {
+        margin-bottom: 3rem;
+      }
+      #skills .chess-desc a {
+        color: rgb(0, 229, 255);
+      }
+      #projects {
+        background-color: rgb(17, 14, 36);
+      }
+
+      #contact button {
+        display: flex;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+      }
+      #contact .right {
+        display: grid;
+      }
+      .Contact_Items img {
+        width: 50px;
+      }
+      .Contact_Items {
+        display: flex;
+        align-items: center;
+        padding: 5px 5px 5px 100px;
+        gap: 1.5rem;
+      }
+      footer p {
+        margin: 30px;
+        justify-content: center;
+        text-align: center;
+        color: grey;
+      }
+      footer a {
+        color: rgb(0, 229, 255);
+      }
+      .On_Others {
+        display: none;
+      }
+      @media (max-width: 980px) {
+        .On_Others {
+          display: flex;
+        }
+        .On_PC {
+          display: none;
+        }
+        #skills .skill-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .grid {
+          display: flex;
+          flex-direction: column;
+        }
+        #about .right {
+          border-left: none;
+          padding-left: 0;
+        }
+        #contact .Contact_Items {
+          padding: 0.3rem 0;
+        }
+      }
+      @media (max-width: 640px) {
+        nav {
+          justify-content: space-between;
+        }
+        nav label img {
+          display: flex;
+        }
+        nav .nav-links {
+          display: none;
+        }
+        #skills .skill-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: center;
+        }
+        #hamburgerCheck:checked ~ .nav-links {
+          display: flex;
+          flex-direction: column;
+          margin-top: 3rem;
+        }
+        #hamburgerCheck:checked ~ label img {
+          content: url(assets/Logo/x.svg);
+        }
+      }
+
+      @media (max-width: 380px) {
+        button {
+          padding: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <img src="assets/Logo/favicon.svg" alt="logo" class="logo" />
+      </div>
+      <input type="checkbox" id="hamburgerCheck" />
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills </a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <label for="hamburgerCheck">
+        <img src="assets/Logo/menu.svg" alt=""
+      /></label>
+    </nav>
+
+    <main>
+      <section id="hero">
+        <div class="container">
+          <div class="status">-Available for opportunities</div>
+          <div>
+            <h1 class="name1">Tamzid</h1>
+            <h1 class="name2">Rahman</h1>
+          </div>
+          <p class="desc1">
+            Cybersecurity Specialist - Game Developer - Competitive Programmer
+          </p>
+          <p class="desc2">
+            Learning things as I stumble and break things. Interested in various
+            fields <s>because I suffer from Shiny Object Syndrome</s> as my
+            curious mind leads me to.
+          </p>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h1 class="title">About Me</h1>
+          <div class="grid">
+            <div class="left">
+              <img src="assets/MyPhotos/CircleProfile.png" alt="" />
+              <p class="desc">
+                Currently studying Computer Science and Engineering and intended
+                to pursue my career in Cybersecurity and also looking forward
+                for Game Development. Doing Competitive Programming for fun
+              </p>
+            </div>
+            <div class="right">
+              <div class="about-row">
+                <h1>100+</h1>
+                <p>Problem solved in CodeForces</p>
+              </div>
+              <div class="about-row">
+                <h1>3</h1>
+                <p>Language fluent</p>
+              </div>
+              <div class="about-row">
+                <h1>2</h1>
+                <p>Projects running</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="container">
+          <h1 class="title">Skills</h1>
+          <h2>Language Proficiency</h2>
+          <div class="skill-grid">
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt=""
+              />
+
+              <p>Proficiency - Intermediate</p>
+              <p>Work - Made my own portfolio from scratch</p>
+            </div>
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt=""
+              />
+
+              <p>Proficiency - Intermediate</p>
+              <p>Work - Made my own portfolio from scratch</p>
+            </div>
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt=""
+              />
+              <p>JavaScript - Beginner</p>
+              <p>Work - Made my own portfolio from scratch</p>
+            </div>
+
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg"
+                alt=""
+              />
+              <p>Proficiency - Intermediate</p>
+              <a
+                href="https://github.com/Tamzid-Rahman75/CodeForce_Problem_Solving.git"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p>
+                  <span class="On_PC"
+                    >Work - Click to see solved problems in Github</span
+                  >
+                  <span class="On_Others"
+                    >Work - Tap to see solved problems in Github</span
+                  >
+                </p>
+              </a>
+            </div>
+
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                alt=""
+              />
+              <p>Proficiency - Beginner</p>
+              <p>Work - Basics only</p>
+            </div>
+            <div class="skill-row">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+                alt=""
+              />
+              <p>Proficiency - Beginner</p>
+              <p>Work - Starting for Competitive Programming</p>
+            </div>
+          </div>
+          <h2>Achievement and Extras</h2>
+          <div class="extras">
+            <h3>Competitive Programming</h3>
+            <div class="CP">
+              <a
+                href="https://codeforces.com/profile/Tamzid_Rahman"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>CodeForces Account</button>
+              </a>
+            </div>
+            <h3>Chess</h3>
+            <div class="chess">
+              <p class="chess-desc">
+                Officially rated chess player in
+                <a
+                  href="https://ratings.fide.com/profile/10277927"
+                  target="_blank"
+                  rel="noopener noopener"
+                  >FIDE</a
+                >
+              </p>
+              <a
+                href="https://www.chess.com/member/not_tamzid"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>Chess.com Account</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        <div class="container">
+          <h1 class="title">Projects</h1>
+          <p>Unfortunately, no project has been completed yet. Coming soon</p>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container">
+          <h1 class="title">Contact Me</h1>
+          <div class="grid">
+            <div class="left">
+              <p>
+                Whether its for internship, work, collaboration or just a
+                friendly conversation, im up for it. Feel free to reach out
+              </p>
+              <a
+                href="mailto:tamzid.rahman.antor.dev@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>Send Email</button>
+              </a>
+            </div>
+            <div class="right">
+              <a
+                href="https://www.instagram.com/not_tamzid?igsh=cDJkbmZiZWE5endz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="Contact_Items">
+                  <img src="assets/Logo/insta-icon.svg" alt="" />Instagram
+                </div>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tamzid-rahman-antor-116038378/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="Contact_Items">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                    alt=""
+                  />Linkedin
+                </div>
+              </a>
+              <a
+                href="https://github.com/Tamzid-Rahman75"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="Contact_Items">
+                  <img src="assets/Logo/github-icon.svg" alt="" />Github
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Built by me. Source code on
+        <a href="https://github.com/Tamzid-Rahman75">Github</a>
+      </p>
+    </footer>
+  </body>
+</html>
